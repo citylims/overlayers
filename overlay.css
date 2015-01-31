@@ -1,0 +1,52 @@
+@media screen and (max-width: 1024px) {
+  img {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-size: 12px;
+  background: #1c1c1c;
+}
+
+img {
+  opacity: .65;
+  transition: .5s;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+nav {
+z-index: 1;
+  position: absolute;
+}
+
+.option img {
+  width: 100%; height: 100%;
+}
+
+.option {
+  overflow: hidden;
+  position: absolute;
+  clear: both;
+  z-index: 0;
+}
+
+button {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+  background: rgba(0,0,0,0.1); /* #191919 */
+  border: 1px solid #141414;
+  padding: 10px 25px;
+}
+
+button:active, .button:focus {
+  box-shadow: 0 0 0 transparent inset;
+}
