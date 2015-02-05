@@ -95,7 +95,7 @@ $("#set_image_two").on('click', function(){
 
 
 //show controls
-$(".button").on('click', function(){
+$("#hide").on('click', function(){
   $(".controls").toggle();
 });
 
