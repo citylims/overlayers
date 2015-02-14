@@ -1,14 +1,6 @@
-//var list
-var flip = $('#flip');
-var link_one = $("#link_one").val();
-var link_two = $("#link_two").val();
-var set_one = $("#set_image_one");
-var set_two = $("#set_image_two");
-var image_one = $(".one").attr("src");
-var image_two = $(".two").attr("src");
 //config for first combo
 var i = 2
-var flipCount = 0
+
 
 //generate combo
 $("#generate").on('click', function(){
@@ -33,9 +25,7 @@ function backward(){
   return i -= 2;
 }
 
-
-
-//
+//keybinding arrows
 function arrows(e){
   switch(e.which) {
     case 37: {
@@ -47,7 +37,7 @@ function arrows(e){
       var image_two = $(".two").attr("src");
       $(".one").attr("src", image_two);
       $(".two").attr("src", image_one);
-      flipCount++
+
     }
     break;
     case 39: {
@@ -59,7 +49,7 @@ function arrows(e){
       var image_two = $(".two").attr("src");
       $(".one").attr("src", image_two);
       $(".two").attr("src", image_one);
-      flipCount++
+
     }
     break;
     default: return;
@@ -89,32 +79,38 @@ $("#hide").on('click', function(){
 
 
 //switch
-$("#flip").on('click', function(){
-  // var image_one = $(".one").attr("src");
-  // var image_two = $(".two").attr("src");
+function flip(){
+  var image_one = $(".one").attr("src");
+  var image_two = $(".two").attr("src");
   $(".one").attr("src", image_two);
   $(".two").attr("src", image_one);
-  flipCount++
+}
+
+$("#flip").on('click', function(){
+  var image_one = $(".one").attr("src");
+  var image_two = $(".two").attr("src");
+  $(".one").attr("src", image_two);
+  $(".two").attr("src", image_one);
 });
 
 //set link one
 $("#set_image_one").on('click', function(){
-  var value = $("#link_one").val();
-  $(".one").attr("src", value);
+  var link = $("#link_one").val();
+  $(".one").attr("src", link);
 })
 
 //set link two
 $("#set_image_two").on('click', function(){
-  var value = $("#link_two").val();
-  $(".two").attr("src", value);
+  var link = $("#link_two").val();
+  $(".two").attr("src", link);
 })
 
 //opacity
 $("#points").on("change", function(e){
   e.preventDefault;
   var opacity = $("#points").val();
-  setOpacity = (opacity / 100);
-  $(".one").css("opacity", setOpacity );
+  // setOpacity = (opacity / 100);
+  $(".one").css("opacity", opacity / 100);
 })
 
 
