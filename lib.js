@@ -3,7 +3,7 @@ var i = 2
 //generate combo
 $("#generate").on('click', function() {
   if(i === combo.length) {
-  i = 0
+    i = 0
     forward();
   }
   else {
@@ -137,5 +137,4 @@ var combo = [
 'http://i.imgur.com/1BhVE5f.jpg'
 ]
 
-
-var additions = [3,'2']
+// var additions = [3,'2']
