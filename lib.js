@@ -1,55 +1,58 @@
 //config for first combo
 var i = 2
-
-
 //generate combo
-$("#generate").on('click', function(){
-  if(i === combo.length){
+$("#generate").on('click', function() {
+  if(i === combo.length) {
   i = 0
     forward();
   }
   else {
     forward();
   }
-})
+});
 
-function forward(){
+//next combo
+function forward() {
   $(".one").attr("src", combo[i]);
   $(".two").attr("src", combo[i+1]);
   return i += 2;
-}
+};
 
-function backward(){
+//previous combo
+function backward() {
   $(".one").attr("src", combo[i-2]);
   $(".two").attr("src", combo[i-1]);
   return i -= 2;
-}
+};
+
+//switch
+function flip() {
+  var image_one = $(".one").attr("src");
+  var image_two = $(".two").attr("src");
+  $(".one").attr("src", image_two);
+  $(".two").attr("src", image_one);
+};
+
+document.querySelector("#flip").addEventListener("click", flip);
 
 //keybinding arrows
-function arrows(e){
+function arrows(e) {
   switch(e.which) {
     case 37: {
       backward();
     }
     break;
     case 38: {
-      var image_one = $(".one").attr("src");
-      var image_two = $(".two").attr("src");
-      $(".one").attr("src", image_two);
-      $(".two").attr("src", image_one);
+      flip();
 
     }
     break;
     case 39: {
         forward();
-    }// right
+    }
     break;
     case 40: {
-      var image_one = $(".one").attr("src");
-      var image_two = $(".two").attr("src");
-      $(".one").attr("src", image_two);
-      $(".two").attr("src", image_one);
-
+      flip();
     }
     break;
     default: return;
@@ -59,11 +62,11 @@ function arrows(e){
 
 //apply arrows for cycling
 $(document).keydown(function(e) {
-  if( i === combo.length){
+  if( i === combo.length) {
     i = 0
     arrows(e);
   }
-  else if(i === 0){
+  else if(i === 0) {
     i === combo.length
     arrows(e);
   }
@@ -73,49 +76,45 @@ $(document).keydown(function(e) {
 });
 
 //show controls
-$("#hide").on('click', function(){
+$("#hide").on('click', function() {
   $(".controls").toggle();
 });
 
-
-//switch
-function flip(){
-  var image_one = $(".one").attr("src");
-  var image_two = $(".two").attr("src");
-  $(".one").attr("src", image_two);
-  $(".two").attr("src", image_one);
-}
-
-$("#flip").on('click', function(){
-  var image_one = $(".one").attr("src");
-  var image_two = $(".two").attr("src");
-  $(".one").attr("src", image_two);
-  $(".two").attr("src", image_one);
-});
-
 //set link one
-$("#set_image_one").on('click', function(){
+$("#set_image_one").on('click', function() {
   var link = $("#link_one").val();
   $(".one").attr("src", link);
-})
+});
 
 //set link two
-$("#set_image_two").on('click', function(){
+$("#set_image_two").on('click', function() {
   var link = $("#link_two").val();
   $(".two").attr("src", link);
-})
+});
 
 //opacity
-$("#points").on("change", function(e){
+$("#points").on("change", function(e) {
   e.preventDefault;
   var opacity = $("#points").val();
-  // setOpacity = (opacity / 100);
   $(".one").css("opacity", opacity / 100);
-})
-
+});
 
 //collection
-var combo = ['http://imgsrc.hubblesite.org/hu/db/images/hs-2009-28-b-large_web.jpg', 'http://imgsrc.hubblesite.org/hu/db/images/hs-2013-06-a-large_web.jpg','http://i.imgur.com/APXnuX9.jpg', 'http://i.imgur.com/tWggUi2.jpg', 'http://i.imgur.com/Sm7CLsX.jpg', "http://i.imgur.com/hwqjycB.jpg", 'http://i.imgur.com/uToSGD6.jpg','http://i.imgur.com/MhdxcD1.jpg', "http://api.ning.com/files/DtcI2O2Ry7DUF8Jo9nWz42UcinX*d271i5G8NPSb0PmPJLmFjIo7iymJzhTJCMLKdvqVHVFZp55LutPbe7QQAxX7Xt5AMseq/1082141698.jpeg", 'http://fusionflight.com/wp-content/uploads/2014/08/Earth-From-Space-Space-1080x1920.jpg', 'http://history.nasa.gov/ap15fj/photos/metric/as15-1541m.jpg',  'http://www.edmitchellapollo14.com/images/HomePageImages/edmitchellapollo14-WalkingOnTheMoon.jpg', 'http://i.imgur.com/RRZK4jz.jpg', 'http://i.imgur.com/hjqzNNh.jpg',
+var combo = [
+'http://i.imgur.com/gvtGp3r.jpg',
+'http://i.imgur.com/JHsYx38.jpg',
+'http://i.imgur.com/APXnuX9.jpg',
+'http://i.imgur.com/tWggUi2.jpg',
+'http://i.imgur.com/Sm7CLsX.jpg',
+'http://i.imgur.com/hwqjycB.jpg',
+'http://i.imgur.com/uToSGD6.jpg',
+'http://i.imgur.com/MhdxcD1.jpg',
+'http://i.imgur.com/cFGDHj4.jpg',
+'http://i.imgur.com/TfGeK3v.jpg',
+'http://i.imgur.com/O3cWx3f.jpg',
+'http://i.imgur.com/AFDWvN7.jpg',
+'http://i.imgur.com/RRZK4jz.jpg',
+'http://i.imgur.com/hjqzNNh.jpg',
 'http://i.imgur.com/udJX6v3.jpg',
 'http://i.imgur.com/3GnMhSx.png',
 'http://i.imgur.com/JuDTTz0.jpg',
@@ -139,4 +138,4 @@ var combo = ['http://imgsrc.hubblesite.org/hu/db/images/hs-2009-28-b-large_web.j
 ]
 
 
-var additions = [3, '2']
+var additions = [3,'2']
