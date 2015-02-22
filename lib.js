@@ -33,8 +33,6 @@ function flip() {
   $(".two").attr("src", image_one);
 };
 
-document.querySelector("#flip").addEventListener("click", flip);
-
 //keybinding arrows
 function arrows(e) {
   switch(e.which) {
@@ -74,6 +72,11 @@ $(document).keydown(function(e) {
     arrows(e);
   }
 });
+
+//buttons
+
+//flipper
+document.querySelector("#flip").addEventListener("click", flip);
 
 //show controls
 $("#hide").on('click', function() {

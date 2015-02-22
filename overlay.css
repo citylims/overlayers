@@ -1,6 +1,7 @@
 body {
   font-size: 12px;
   background: #1c1c1c;
+  color: white;
 }
 
 img {
@@ -28,4 +29,9 @@ button {
   margin-right: 10px;
   border: .1px solid #141414;
   padding: 10px 25px;
+}
+
+span {
+  padding-left: 2em;
+  float: right;
 }
