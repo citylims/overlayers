@@ -9,7 +9,6 @@ var overLayers = function(arr) {
   init();
 
   function init() {
-    console.log(collection);
     refreshDisplay();
     $(document).keydown(function(e) {
       arrows(e);
@@ -29,7 +28,6 @@ var overLayers = function(arr) {
   }
 
   function refreshDisplay() {
-    console.log(collection.combos[0]);
     $(".top").attr("src", collection.combos[0].top);
     $(".bottom").attr("src", collection.combos[0].bottom);
   }
@@ -44,15 +42,11 @@ var overLayers = function(arr) {
       for (var i = 0; i < collection.combos.length; i ++) {
         if (collection.combos[i].top === topImg &&
           collection.combos[i].bottom === bottomImg) {
-          console.log("match");
           if (direction === "forward") {
-            console.log("forward");
             $(".top").attr("src", collection.combos[i + 1].top);
             $(".bottom").attr("src", collection.combos[i + 1].bottom);
           }
           else if(direction === "backward") {
-            console.log("backward");
-            console.log("pos" + collection.combos[i-1]);
             $(".top").attr("src", collection.combos[i - 1].top);
             $(".bottom").attr("src", collection.combos[i - 1].bottom);
           }
