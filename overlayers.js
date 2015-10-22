@@ -10,7 +10,7 @@ var overLayers = function(arr) {
 
   function init() {
     console.log(collection);
-    displayCombo(collection)
+    refreshDisplay();
     $(document).keydown(function(e) {
       arrows(e);
     });
@@ -28,36 +28,34 @@ var overLayers = function(arr) {
     }
   }
 
-  function displayCombo() {
+  function refreshDisplay() {
     console.log(collection.combos[0]);
     $(".top").attr("src", collection.combos[0].top);
     $(".bottom").attr("src", collection.combos[0].bottom);
   }
 
-  function flip() {
-    var topImg = $(".top").attr("src");
-    var bottomImg = $(".bottom").attr("src");
-    $(".top").attr("src", bottomImg);
-    $(".bottom").attr("src", topImg);
-  };
-
   function movement(direction) {
     var topImg = $('.top').attr('src');
     var bottomImg = $('.bottom').attr('src');
-    for (var i = 0; i < collection.combos.length; i ++) {
-      if (collection.combos[i].top === topImg &&
-        collection.combos[i].bottom === bottomImg) {
-        console.log("match");
-        if (direction === "forward") {
-          console.log("forward");
-          $(".top").attr("src", collection.combos[i + 1].top);
-          $(".bottom").attr("src", collection.combos[i + 1].bottom);
-        }
-        else if(direction === "backward") {
-          console.log("backward");
-          console.log("pos" + collection.combos[i-1]);
-          $(".top").attr("src", collection.combos[i - 1].top);
-          $(".bottom").attr("src", collection.combos[i - 1].bottom);
+    if (direction === "flip") {
+      $(".top").attr("src", bottomImg);
+      $(".bottom").attr("src", topImg);
+    } else {
+      for (var i = 0; i < collection.combos.length; i ++) {
+        if (collection.combos[i].top === topImg &&
+          collection.combos[i].bottom === bottomImg) {
+          console.log("match");
+          if (direction === "forward") {
+            console.log("forward");
+            $(".top").attr("src", collection.combos[i + 1].top);
+            $(".bottom").attr("src", collection.combos[i + 1].bottom);
+          }
+          else if(direction === "backward") {
+            console.log("backward");
+            console.log("pos" + collection.combos[i-1]);
+            $(".top").attr("src", collection.combos[i - 1].top);
+            $(".bottom").attr("src", collection.combos[i - 1].bottom);
+          }
         }
       }
     }
@@ -90,23 +88,19 @@ var overLayers = function(arr) {
         movement("backward");
       }
       break;
-      case 38: {
-        flip();
+      case 38:
+      case 40: {
+        movement("flip")
       }
       break;
       case 39: {
           movement("forward");
       }
       break;
-      case 40: {
-        flip();
-      }
-      break;
       default: return;
     }
     e.preventDefault();
   };
-
 }//overlayers
 
 //combo array
