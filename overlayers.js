@@ -61,7 +61,7 @@ var overLayers = function(arr) {
   });
 
   $("#flip").on('click', function() {
-    flip();
+    movement("flip");
   })
 
   $("#hide").on('click', function() {
