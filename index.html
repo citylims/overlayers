@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Overlayers</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="overlay.css">
-  <title>Overlayer</title>
+  <link rel="stylesheet" href="overlayers.css">
+  <link rel="shortcut icon" type="image/ico" href="images/favicon.png">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 <body>
   <nav>
@@ -11,18 +13,16 @@
       <button class="controls" id="generate">Generate</button>
       <button class="controls" id="flip">Flip</button>
       <input class="controls" id="points" type="range"  min="0" max="100"/>
-      <button class="controls" id="set_image_one">Set</button>
-      <input class="controls" id="link_one"/>
-      <button class="controls" id="set_image_two">Set</button>
-      <input class="controls" id="link_two"/>
+      <!-- <input class="controls" placeholder="input top img" id="linkOne"/>
+      <input class="controls" placeholder="input bottom img" id="linkTwo"/>
+      <button class="controls" id="setCombo">Set</button> -->
       <span class="controls"><p>Left & Right Arrows - Cycle</p></span>
       <span class="controls"><p>Up & Down Arrows - Flip</p></span>
   </nav>
   <div class='option'>
-      <img class="one" src='http://i.imgur.com/gvtGp3r.jpg'>
-      <img class="two" src='http://i.imgur.com/JHsYx38.jpg'>
+      <img class="top" src='http://i.imgur.com/gvtGp3r.jpg'>
+      <img class="bottom" src='http://i.imgur.com/JHsYx38.jpg'>
   </div>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src="lib.js"></script>
+  <script src="overlayers.js"></script>
 </body>
 </html>

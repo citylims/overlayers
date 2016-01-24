@@ -35,3 +35,7 @@ span {
   padding-left: 2em;
   float: right;
 }
+
+input {
+  margin: 0px  10px;
+}
